@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cổng công trình số hóa</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#8B0000"
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-gradient-to-br from-amber-50 via-white to-red-50 min-h-screen">
+
+<div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- Header -->
+
+    <div class="text-center mb-12">
+
+        <div class="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow">
+
+            <i class="fa-solid fa-landmark text-primary text-3xl"></i>
+
+            <div class="text-left">
+
+                <h1 class="text-3xl font-bold text-primary">
+                    Cổng công trình số hóa
+                </h1>
+
+                <p class="text-gray-500">
+                    Digital Heritage Portal
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Thống kê -->
+
+    <div class="mb-8 flex justify-center">
+
+        <div class="bg-white rounded-2xl shadow px-8 py-4">
+
+            <div class="text-4xl font-bold text-primary" id="totalProject">
+                0
+            </div>
+
+            <div class="text-gray-500">
+                Công trình
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Danh sách -->
+
+    <div id="projects"
+         class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    </div>
+
+</div>
+
+<script>
+
+const projects = [
+
+{
+    name:"Công trình số hóa thông tin di tích kiến trúc nghệ thuật Đình Phú Xuân",
+
+    url:"CongTrinhSoHoaThongTinDiTichLichSuDinhThanPhuXuan/",
+
+    desc:"Khám phá thông tin, bản đồ và hình ảnh của Đình Phú Xuân.",
+
+    icon:"fa-building-columns"
+},
+
+// Thêm tại đây
+
+/*
+{
+    name:"Đình ABC",
+    url:"CongTrinhABC/",
+    desc:".....",
+    icon:"fa-church"
+},
+*/
+
+];
+
+document.getElementById("totalProject").innerHTML = projects.length;
+
+const container = document.getElementById("projects");
+
+projects.forEach(item=>{
+
+container.innerHTML += `
+
+<a href="${item.url}"
+class="group bg-white rounded-2xl shadow hover:shadow-xl border border-gray-100 p-6 transition duration-300 hover:-translate-y-1">
+
+<div class="flex items-start gap-4">
+
+<div class="w-16 h-16 rounded-2xl bg-red-100 flex items-center justify-center">
+
+<i class="fa-solid ${item.icon} text-2xl text-primary"></i>
+
+</div>
+
+<div class="flex-1">
+
+<h2 class="font-bold text-lg text-gray-800 group-hover:text-primary transition">
+
+${item.name}
+
+</h2>
+
+<p class="text-gray-500 mt-3 text-sm">
+
+${item.desc}
+
+</p>
+
+<div class="mt-5 inline-flex items-center gap-2 text-primary font-semibold">
+
+Truy cập
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+`;
+
+});
+
+</script>
+
+</body>
+
+</html>
